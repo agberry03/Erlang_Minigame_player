@@ -21,6 +21,7 @@
 {Make a list of websites that you found helpful in this project}
 * [Getting Started With Erlang](https://erlang.org/documentation/doc-5.3/doc/getting_started/getting_started.html)
 * [Erlang Tutorial by Derek Banas](https://www.youtube.com/watch?v=IEhwc2q1zG4)
+* [How to get input from the user in Erlang, answer by 7stud](https://stackoverflow.com/questions/50109119/how-to-accept-input-from-user-console-in-erlang)
 
 # Future Work
 
