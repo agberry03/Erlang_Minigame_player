@@ -4,7 +4,8 @@
 
 % Main function that runs the other functions. I may remove it for the final product.
 main() ->
-    guess_number(uniform(10), 0). % uniform(10) gets a random number between 1 and 10 (inclusive).
+    guess_number(uniform(10), 0), % uniform(10) gets a random number between 1 and 10 (inclusive).
+    rock_paper_scissors().
 
 % The guess_number function. Runs the number guessing game.
 % Number = the number the user needs to guess.
@@ -34,3 +35,18 @@ guess_number(Number, Guesses) ->
        true -> % You ran out of guesses.
         io:format("You ran out of guesses. The answer was ~p.~n", [Number])
     end.
+
+% The rock_paper_scissors function
+rock_paper_scissors() ->
+    
+    % Randomly select the opponent's choice.
+    Com_input = uniform(3),
+
+    % Display the different options for the player to select.
+    io:format("Select on of the following options:~n"),
+    io:format("1. Rock~n"),
+    io:format("2. Paper~n"),
+    io:format("3. Scissors~n"),
+
+    % Select a value corresponding to rock, paper, or scissors.
+    {ok, Player_input} = io:read("Select one: ").
