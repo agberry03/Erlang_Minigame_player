@@ -98,7 +98,7 @@ rock_paper_scissors() ->
         true -> % It's not a tie.
             case Player_input of
                 1 ->
-                    if Com_input == 2 ->
+                    if Com_input == 3 ->
                         io:format("~nRock beats scissors!~nYou win!~n");
                         
                         true -> % Computer beats rock.

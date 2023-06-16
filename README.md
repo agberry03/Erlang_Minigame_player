@@ -6,7 +6,7 @@ I wrote a program in Erlang lets the user play three different minigames, a user
 
 My purpose for writing this software was to introduce myself to the Erlang language, and functional programming in general.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Demonstration Video](https://www.youtube.com/watch?v=iLbDhb4xEoU)
 
 # Development Environment
 
