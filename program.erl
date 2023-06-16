@@ -4,11 +4,48 @@
 
 % Main function that runs the other functions. I may remove it for the final product.
 main() ->
-    % guess_number(uniform(10), 0), % uniform(10) gets a random number between 1 and 10 (inclusive).
-    % rock_paper_scissors().
-    % Prompt the user to think of a number.
-    io:read("Think of a number between one and 100.(Press ENTER to continue): "),
-    computer_guess(lists:seq(1, 100)).
+    io:format("~nWelcome to the minigame player!~n~n"),
+    io:format("Select one of the following options:~n"),
+    io:format("1. The guess number game~n"),
+    io:format("2. Rock paper scissors~n"),
+    io:format("3. Computer number guessing game~n"),
+    io:format("0. End program~n~n"),
+
+    {ok, Choice} = io:read("Select one: "),
+
+    case Choice of
+
+        1 ->
+            % Welcome message.
+            io:format("~nWelcome to the number guessing game!~n"),
+            % Explain rules.
+            io:format("~nThe program will pick a random number between 1 and 10.~n"),
+            io:format("You guess the number, and the program will tell you if the answer was right, higher, or lower.~n"),
+            io:format("You get two guesses.~n~n"),
+            guess_number(uniform(10), 0), % uniform(10) gets a random number between 1 and 10 (inclusive).
+            main();
+        2 ->
+            % Welcome message.
+            io:format("~nWelcome to Rock, paper, scissors!~n"),
+            % Explain rules.
+            io:format("~nYou will pick rock, paper, or scissors.~n"),
+            io:format("After that, program will compare your choice to its own.~n"),
+            io:format("It will output a win, a lose, or a tie depending on the results.~n"),
+            rock_paper_scissors(),
+            main();
+        3 ->
+            % Welcome message.
+            io:format("~nWelcome to the computer number guessing game!~n"),
+            % Explain rules.
+            io:format("~nThink of a number, and then answer the prompts the computer gives you.~n"),
+            io:format("The computer will continue to guess until it is correct.~n~n"),
+            % Prompt the user to think of a number.
+            io:read("Think of a number between 1 and 100.(Press ENTER to continue): "),
+            computer_guess(lists:seq(1, 100)),
+            main();
+        0 ->
+            io:format("~nGoodbye.~n~n")
+    end.
 
 % The guess_number function. Runs the number guessing game.
 % Number = the number the user needs to guess.
@@ -24,15 +61,15 @@ guess_number(Number, Guesses) ->
         {ok, Guess_number} = io:read("Guess a number between 1 and 10: "),
 
         if Guess_number > Number ->
-            io:format("Lower.~n"),
+            io:format("~nLower.~n~n"),
             guess_number(Number, Guesses+1);
 
            Guess_number < Number ->
-            io:format("Higher.~n"),
+            io:format("~nHigher.~n~n"),
             guess_number(Number, Guesses+1);
 
            true -> % Guess is correct.
-            io:format("You got it!~n")
+            io:format("~nYou got it!~n")
         end;
 
        true -> % You ran out of guesses.
@@ -46,40 +83,40 @@ rock_paper_scissors() ->
     Com_input = uniform(3),
 
     % Display the different options for the player to select.
-    io:format("Select one of the following options:~n"),
+    io:format("~nSelect one of the following options:~n"),
     io:format("1. Rock~n"),
     io:format("2. Paper~n"),
-    io:format("3. Scissors~n"),
+    io:format("3. Scissors~n~n"),
 
     % Select a value corresponding to rock, paper, or scissors.
     {ok, Player_input} = io:read("Select one: "),
 
     % Check if it is a tie.
     if Player_input == Com_input ->
-        io:format("It's a tie!");
+        io:format("~nIt's a tie!");
         
         true -> % It's not a tie.
             case Player_input of
                 1 ->
                     if Com_input == 2 ->
-                        io:format("Rock beats scissors!~nYou win!~n");
+                        io:format("~nRock beats scissors!~nYou win!~n");
                         
                         true -> % Computer beats rock.
-                            io:format("Paper beats rock.~nYou lose.~n")
+                            io:format("~nPaper beats rock.~nYou lose.~n")
                     end;
                 2 ->
                     if Com_input == 1 ->
-                        io:format("Paper beats rock!~nYou win!~n");
+                        io:format("~nPaper beats rock!~nYou win!~n");
                     
                         true -> % Computer beats paper.
-                            io:format("Scissors beats paper.~nYou lose.~n")
+                            io:format("~nScissors beats paper.~nYou lose.~n")
                     end;
                 3 ->
                     if Com_input == 2 ->
-                        io:format("Scissors beats paper!~nYou win!~n");
+                        io:format("~nScissors beats paper!~nYou win!~n");
 
                         true -> % Computer beats scissors.
-                            io:format("Rock beats scissors.~nYou lose.~n")
+                            io:format("~nRock beats scissors.~nYou lose.~n")
                     end
             end
     end.
@@ -96,12 +133,11 @@ computer_guess(Number_list) ->
     io:format("Is the number ~p? ", [Guess]),
     {ok, Is_correct} = io:read("y/n: "),
     
-    
     case Is_correct of
         
         y ->
             % If it is, then end the program.
-            io:format("Awesome! The answer is ~p!~n", [Guess]);
+            io:format("~nAwesome! The answer is ~p!~n", [Guess]);
 
         n ->
             % Otherwise, ask if the real number is lower or higher.

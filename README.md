@@ -1,20 +1,18 @@
 # Overview
 
-{Important! Do not say in this section that this is college assignment. Talk about what you are trying to accomplish as a software engineer to further your learning.}
+I built this program to learn more about the syntax and functionality of the Erlang programming language, and how to use it properly.
 
-{Provide a description for the software that you wrote to demonstrate the Erlang language.}
+I wrote a program in Erlang lets the user play three different minigames, a user number guessing game, a rock, paper,scissors game, and a computer number guessing game.
 
-{Describe your purpose for writing this software.}
-
-{Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running and a walkthrough of the code. Focus should be on sharing what you learned about the language syntax.}
+My purpose for writing this software was to introduce myself to the Erlang language, and functional programming in general.
 
 [Software Demo Video](http://youtube.link.goes.here)
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
+I used the Visual Studio Code IDE.
 
-{Describe the programming language that you used and any libraries.}
+I created this program using the Erlang language. I also used the uniform function by importing the rand module.
 
 # Useful Websites
 
@@ -27,8 +25,6 @@
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
-
-- Item 1
-- Item 2
-- Item 3
+- Import the functions separately.
+- Create a quick draw game function.
+- Create a separate menu function.
